@@ -1,0 +1,28 @@
+<!-- game/templates/game/play_game.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <h1>Rock Paper Scissors Game</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="user_choice">Choose: </label>
+        <select name="user_choice" id="user_choice">
+            <option value="Rock">Rock</option>
+            <option value="Paper">Paper</option>
+            <option value="Scissors">Scissors</option>
+        </select>
+        <button type="submit">Play</button>
+    </form>
+    {% if computer_choice %}
+    <p>Computer chose: {{ computer_choice }}</p>
+    {% endif %}
+    {% if result %}
+    <p>{{ result }}</p>
+    {% endif %}
+</body>
+</html>
